@@ -8,6 +8,8 @@ var pkg = require('./package.json');
 
 var config = {
   fileName: pkg.name,
+  version: pkg.version,
+  repository: pkg.repository,
   paths: {
     root: __dirname,
     entry: 'src/tracking.js',
