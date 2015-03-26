@@ -12,15 +12,7 @@ A client library to allow lightweight components to be shared across reddit stac
 #### In the browser
 
 ```js
-var tracker = new Metron.Tracker({
-  domain: 'https://redditanalytics.com',
-});
+var Tracker = new redditlib.Tracker();
 
-tracker.send({
-  event: 'embed',
-  action: 'create',
-  thing: id,
-  sr: sr,
-  live: live,
-}, callback);
+Tracker.getTrackingData();
 ```

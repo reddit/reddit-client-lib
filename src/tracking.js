@@ -1,6 +1,6 @@
 'use strict';
 
-var tracker = module.exports = function(options) {
+var Tracker = module.exports = function(options) {
 };
 
 function randomString(len) {
@@ -57,11 +57,11 @@ function getLoggedOutData() {
   return getCookies(['loid', 'loidcreated']);
 }
 
-tracker.prototype.getTrackingData = function() {
+Tracker.prototype.getTrackingData = function() {
   return getLoggedOutData();
 };
 
-tracker.prototype.getTrackingParams = function() {
+Tracker.prototype.getTrackingParams = function() {
   var data =  getLoggedOutData();
   if (data && data.loid) {
     return '&loid=' + data.loid + '&loidcreated=' + data.loidcreated;
@@ -74,5 +74,5 @@ tracker.prototype.getTrackingParams = function() {
 if (typeof window !== 'undefined') {
   var redditlib = (window.redditlib = window.redditlib || {});
 
-  redditlib.tracker = tracker;
+  redditlib.Tracker = Tracker;
 }
