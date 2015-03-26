@@ -14,13 +14,14 @@ function randomString(len) {
   return id.join('');
 }
 
-function getCookies(names) {
+function getCookies(/* names */) {
+  var names = Array.prototype.slice.call(arguments);
   var ret = {};
 
   var cookies = document.cookie.split(';');
   for (var i = 0; i < cookies.length; i++) {
     var cData = cookies[i].split('=', 2);
-    var cName = cData[0].replace(/^[ ]+/, '');
+    var cName = cData[0].replace(/^\s+/, '');
 
     if (names.indexOf(cName) !== -1) {
       ret[cName] = cData[1];
@@ -42,7 +43,7 @@ function getLoggedOutData() {
     return {};
   }
 
-  var cookies = getCookies(['loid', 'loidcreated']);
+  var cookies = getCookies('loid', 'loidcreated');
   if (cookies.loid) {
     return cookies;
   }
@@ -54,7 +55,7 @@ function getLoggedOutData() {
   setCookie('loid', loggedOutId, expires);
   setCookie('loidcreated', created, expires);
 
-  return getCookies(['loid', 'loidcreated']);
+  return getCookies('loid', 'loidcreated');
 }
 
 Tracker.prototype.getTrackingData = function() {

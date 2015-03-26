@@ -1,3 +1,3 @@
 'use strict';
 
-require('./src/tracking');
+exports.Tracker = require('./src/tracking');

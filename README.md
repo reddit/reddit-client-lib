@@ -1,4 +1,4 @@
-reddit-tracking-client
+reddit-client-lib
 ========
 
 A client library to allow lightweight components to be shared across reddit stacks.
