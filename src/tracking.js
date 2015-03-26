@@ -61,15 +61,6 @@ Tracker.prototype.getTrackingData = function() {
   return getLoggedOutData();
 };
 
-Tracker.prototype.getTrackingParams = function() {
-  var data =  getLoggedOutData();
-  if (data && data.loid) {
-    return '&loid=' + data.loid + '&loidcreated=' + data.loidcreated;
-  }
-
-  return '';
-};
-
 // Export to `window`, for browser wo/browserify.
 if (typeof window !== 'undefined') {
   var redditlib = (window.redditlib = window.redditlib || {});
