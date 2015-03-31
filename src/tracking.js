@@ -62,6 +62,15 @@ Tracker.prototype.getTrackingData = function() {
   return getLoggedOutData();
 };
 
+Tracker.prototype.hasParams = function(url) {
+  var a = document.createElement('a');
+  a.href = url;
+  if (a.search) {
+    return true;
+  }
+  return false;
+};
+
 // Export to `window`, for browser wo/browserify.
 if (typeof window !== 'undefined') {
   var redditlib = (window.redditlib = window.redditlib || {});
